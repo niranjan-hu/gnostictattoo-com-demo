@@ -1,148 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gnostic Tattoo | Art That Endures</title>
+    <title>Gnostic Tattoo Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Cabinet+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        mono: ['IBM Plex Mono', 'monospace'],
-                        sans: ['Cabinet Grotesk', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        body { background-color: #0d0d0d; color: #f0f0f0; overflow-x: hidden; }
-        .brutalist-nav { background-color: #000000; border-bottom: 2px solid #50e3c2; }
-        .brutalist-button { background-color: #50e3c2; color: #000000; padding: 1rem 2.5rem; border: 2px solid #50e3c2; font-family: 'IBM Plex Mono', monospace; font-weight: 700; transition: all 0.1s ease-in-out; }
-        .brutalist-button:hover { background-color: #000000; color: #50e3c2; transform: translateY(-2px); }
-        .brutalist-card { background-color: #1a1a1a; border: 1px solid #555555; padding: 2rem; }
-        .section-padding-brutal { padding-top: 6rem; padding-bottom: 6rem; }
-        .text-accent { color: #50e3c2; }
-        .grid-divider { border: 1px solid #333; }
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Jura:wght@300;400;500;600;700&display=swap');
+        
+        body { font-family: 'Jura', sans-serif; background-color: #050505; color: #E5E5E5; overflow-x: hidden; }
+        h1, h2, h3, .gothic { font-family: 'Cinzel', serif; }
+
+        .red-accent { color: #8A0303; }
+        .bg-red-accent { background-color: #8A0303; }
+        .border-red-accent { border-color: #8A0303; }
+
+        .glitch-hover:hover {
+            animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+            color: #8A0303;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+
+        .dark-overlay {
+            background: linear-gradient(180deg, rgba(5,5,5,0.2) 0%, rgba(5,5,5,1) 100%);
+        }
+
+        .custom-cursor { cursor: crosshair; }
+        
+        ::selection { background: #8A0303; color: white; }
     </style>
 </head>
-<body class="antialiased font-sans">
+<body class="antialiased custom-cursor">
 
-    <!-- Navbar (Brutalist) -->
-    <nav class="fixed top-0 left-0 right-0 z-50 brutalist-nav px-8 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-mono font-bold tracking-widest text-accent uppercase">GNOSTIC</div>
-            <div class="flex items-center gap-6 text-sm font-mono font-medium text-zinc-300">
-                <a href="#hero" class="hover:text-white transition-colors">HOME</a>
-                <a href="#services" class="hover:text-white transition-colors">WORK</a>
-                <a href="#gallery" class="hover:text-white transition-colors">PORTFOLIO</a>
-                <a href="#contact" class="hover:text-white transition-colors">CONTACT</a>
-            </div>
+    <!-- Nav -->
+    <nav class="fixed w-full top-0 z-50 bg-[#050505]/80 backdrop-blur-md border-b border-[#1A1A1A] px-8 py-6 flex justify-between items-center">
+        <div class="text-3xl gothic tracking-[0.3em] font-bold">GNOSTIC</div>
+        <div class="hidden md:flex gap-12 text-sm tracking-[0.2em] uppercase text-gray-400">
+            <a href="#artists" class="hover:text-white transition">Artists</a>
+            <a href="#studio" class="hover:text-white transition">The Studio</a>
+            <a href="#faq" class="hover:text-white transition">FAQ</a>
         </div>
+        <a href="mailto:contact@gnostictattoo.com" class="border border-[#8A0303] text-[#8A0303] px-8 py-2 text-sm tracking-[0.2em] uppercase hover:bg-[#8A0303] hover:text-white transition duration-300">Consultation</a>
     </nav>
 
-    <!-- Hero Section (Industrial Brutal) -->
-    <section id="hero" class="min-h-[100dvh] flex items-center px-6 relative overflow-hidden bg-[#0d0d0d]">
-        <div class="absolute inset-0 z-0 opacity-10 bg-blend-overlay" style="background-image: url('https://images.pexels.com/photos/35742622/pexels-photo-35742622.jpeg'); background-size: cover; background-position: center;"></div>
+    <!-- Hero -->
+    <header class="relative min-h-screen flex flex-col justify-center items-center text-center pt-24">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.pexels.com/photos/6593432/pexels-photo-6593432.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1600&w=2400" alt="Tattoo Artist Working" class="w-full h-full object-cover opacity-30 grayscale filter contrast-125">
+            <div class="absolute inset-0 dark-overlay"></div>
+        </div>
         
-        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 relative z-10 py-24">
+        <div class="relative z-10 px-4">
+            <h1 class="text-7xl md:text-[9rem] gothic font-black tracking-widest leading-none mb-6">GNOSTIC</h1>
+            <p class="text-xl md:text-3xl tracking-[0.5em] uppercase text-gray-400 mb-12">Tattoo Studio</p>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl font-light text-gray-500 leading-relaxed tracking-wider mb-12">
+                Esoteric artistry. Bold linework. Custom designs. <br> Blood, ink, and alchemy in the heart of the city.
+            </p>
+            <div class="w-[1px] h-32 bg-[#8A0303] mx-auto opacity-50"></div>
+        </div>
+    </header>
+
+    <!-- Studio / Philosophy -->
+    <section id="studio" class="py-32 px-8 relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-5xl md:text-6xl gothic font-bold mb-8 tracking-widest">THE RITUAL</h2>
+                <p class="text-xl text-gray-400 leading-relaxed mb-6 font-light tracking-wide">
+                    Tattooing is more than a service; it is a rite of passage. At Gnostic, we treat every piece as a permanent esoteric mark of your journey.
+                </p>
+                <p class="text-lg text-gray-500 leading-relaxed mb-12 font-light tracking-wide">
+                    Our studio operates strictly on custom designs. We specialize in dark surrealism, blackwork, illustrative geometry, and traditional neoteric styles. No flash. No compromises.
+                </p>
+                <a href="mailto:contact@gnostictattoo.com" class="text-[#8A0303] tracking-[0.3em] uppercase text-sm border-b border-[#8A0303] pb-1 hover:text-white transition glitch-hover">Book The Ritual</a>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 border border-[#1A1A1A] z-0 translate-x-4 translate-y-4"></div>
+                <img src="https://images.pexels.com/photos/6593369/pexels-photo-6593369.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1000&w=800" alt="Studio Interior" class="relative z-10 w-full grayscale contrast-150 border border-[#333]">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Styles -->
+    <section class="py-32 bg-[#0A0A0A] border-y border-[#1A1A1A]">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="text-4xl gothic text-center tracking-[0.4em] mb-20 text-gray-600">DISCIPLINES</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="border border-[#1A1A1A] p-12 hover:border-[#8A0303] transition duration-500 group bg-[#050505]">
+                    <h3 class="text-3xl gothic mb-6 group-hover:text-[#8A0303] transition">Blackwork</h3>
+                    <p class="text-gray-500 font-light tracking-wider leading-relaxed">Heavy black saturation, negative space, and aggressive contrast. Geometric, illustrative, and abstract forms.</p>
+                </div>
+                <div class="border border-[#1A1A1A] p-12 hover:border-[#8A0303] transition duration-500 group bg-[#050505]">
+                    <h3 class="text-3xl gothic mb-6 group-hover:text-[#8A0303] transition">Dark Surrealism</h3>
+                    <p class="text-gray-500 font-light tracking-wider leading-relaxed">Macabre, esoteric, and psychological imagery. Blending realism with nightmare logic and occult symbolism.</p>
+                </div>
+                <div class="border border-[#1A1A1A] p-12 hover:border-[#8A0303] transition duration-500 group bg-[#050505]">
+                    <h3 class="text-3xl gothic mb-6 group-hover:text-[#8A0303] transition">Fine Line</h3>
+                    <p class="text-gray-500 font-light tracking-wider leading-relaxed">Delicate, single-needle precision. Micro-realism, esoteric sigils, and subtle ornamentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contact" class="py-32 px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div class="flex flex-col justify-center">
-                <span class="inline-block px-4 py-1 border border-accent text-accent text-xs uppercase tracking-wider font-mono font-medium mb-6">Precision Tattoo Artistry</span>
-                <h1 class="font-sans text-7xl md:text-8xl lg:text-[10rem] font-bold leading-[0.9] tracking-tighter mb-8 text-white">
-                    ART<br>THAT<br>ENDURES.
-                </h1>
-                <p class="font-mono text-zinc-400 text-lg max-w-[50ch] mb-10 leading-relaxed">Gnostic Tattoo creates custom, high-quality tattoos with a focus on enduring design and meticulous execution.</p>
-                <div class="flex items-center gap-4">
-                    <button class="brutalist-button flex items-center gap-2">
-                        VIEW OUR WORK <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </button>
+                <h2 class="text-5xl gothic mb-10 tracking-widest">INITIATE <br>CONTACT</h2>
+                <div class="space-y-8 font-light tracking-widest text-lg">
+                    <div>
+                        <p class="text-gray-600 text-sm uppercase mb-2">Electronic Mail</p>
+                        <a href="mailto:contact@gnostictattoo.com" class="text-white hover:text-[#8A0303] transition">CONTACT@GNOSTICTATTOO.COM</a>
+                    </div>
+                    <div>
+                        <p class="text-gray-600 text-sm uppercase mb-2">Sanctuary</p>
+                        <p class="text-white">NEW YORK, NY<br><span class="text-gray-500 text-sm">PRIVATE STUDIO. ADDRESS UPON BOOKING.</span></p>
+                    </div>
+                    <div>
+                        <p class="text-gray-600 text-sm uppercase mb-2">Hours of Operation</p>
+                        <p class="text-white">TUESDAY - SATURDAY<br>12:00 PM - 8:00 PM</p>
+                    </div>
                 </div>
             </div>
-            <div class="hidden md:flex items-center justify-center">
-                <div class="w-full max-w-lg aspect-[4/5] overflow-hidden border-2 border-accent shadow-lg shadow-accent/20">
-                    <img src="https://images.pexels.com/photos/35742622/pexels-photo-35742622.jpeg" class="w-full h-full object-cover" alt="Tattoo artist working" />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section (Gridded Brutalism) -->
-    <section id="services" class="section-padding-brutal px-6 bg-[#0d0d0d]">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="font-sans text-5xl md:text-7xl font-bold tracking-tighter mb-16 text-white text-center">OUR<br>PROCESS.</h2>
-            <div class="grid lg:grid-cols-3 gap-0 border border-t-2 border-l-2 border-accent">
-                <!-- Card 1 -->
-                <div class="brutalist-card flex flex-col items-start border-b-2 border-r-2 border-accent">
-                    <i data-lucide="pencil-line" class="w-10 h-10 text-accent mb-6"></i>
-                    <h3 class="font-sans text-3xl font-bold mb-4 text-white">Concept & Design</h3>
-                    <p class="font-mono text-zinc-400 leading-relaxed flex-grow">Collaborate with our artists to bring your unique vision to life with custom designs.</p>
-                    <div class="mt-8 text-sm font-mono font-bold text-accent tracking-wide">Step 01</div>
-                </div>
-                <!-- Card 2 -->
-                <div class="brutalist-card flex flex-col items-start border-b-2 border-r-2 border-accent">
-                    <i data-lucide="hand" class="w-10 h-10 text-accent mb-6"></i>
-                    <h3 class="font-sans text-3xl font-bold mb-4 text-white">Precision Application</h3>
-                    <p class="font-mono text-zinc-400 leading-relaxed flex-grow">Meticulous tattooing techniques for clean lines and vibrant, lasting color.</p>
-                    <div class="mt-8 text-sm font-mono font-bold text-accent tracking-wide">Step 02</div>
-                </div>
-                <!-- Card 3 -->
-                <div class="brutalist-card flex flex-col items-start border-b-2 border-accent">
-                    <i data-lucide="droplets" class="w-10 h-10 text-accent mb-6"></i>
-                    <h3 class="font-sans text-3xl font-bold mb-4 text-white">Aftercare & Healing</h3>
-                    <p class="font-mono text-zinc-400 leading-relaxed flex-grow">Guidance and support for optimal healing and preservation of your new artwork.</p>
-                    <div class="mt-8 text-sm font-mono font-bold text-accent tracking-wide">Step 03</div>
-                </div>
+            <div class="relative">
+                <img src="https://images.pexels.com/photos/6593353/pexels-photo-6593353.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=1000" alt="Drawing Design" class="w-full grayscale contrast-125 opacity-70">
+                <div class="absolute inset-0 bg-[#8A0303] mix-blend-overlay opacity-20"></div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section (Image Grid with Strong Borders) -->
-    <section id="gallery" class="section-padding-brutal px-6 bg-[#0d0d0d]">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="font-sans text-5xl md:text-7xl font-bold tracking-tighter mb-16 text-white text-center">VISUAL<br>ARCHIVE.</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t-2 border-l-2 border-accent">
-                <div class="relative w-full aspect-[4/5] overflow-hidden border-b-2 border-r-2 border-accent group">
-                    <img src="https://images.pexels.com/photos/20531496/pexels-photo-20531496.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Custom tattoo design" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 text-white font-mono text-2xl font-bold">FINE LINE</div>
-                </div>
-                <div class="relative w-full aspect-[4/5] overflow-hidden border-b-2 border-r-2 border-accent group">
-                    <img src="https://images.pexels.com/photos/20519308/pexels-photo-20519308.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tattoo session closeup" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 text-white font-mono text-2xl font-bold">COVER-UP</div>
-                </div>
-                <div class="relative w-full aspect-[4/5] overflow-hidden border-b-2 border-accent group">
-                    <img src="https://images.pexels.com/photos/35742622/pexels-photo-35742622.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Tattoo studio interior" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 text-white font-mono text-2xl font-bold">TRADITIONAL</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="py-24 px-6 bg-[#0d0d0d] border-t-2 border-accent">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
-            <div class="text-center lg:text-left">
-                <div class="font-mono text-3xl font-bold tracking-wide uppercase mb-6 text-accent">GNOSTIC TATTOO</div>
-                <p class="text-zinc-500 max-w-md leading-relaxed font-mono">Dedicated to permanent art. Schedule your consultation.</p>
-            </div>
-            <div class="text-zinc-400 text-lg space-y-4 text-center lg:text-right font-mono">
-                <p>studio@gnostictattoo.com</p>
-                <p>+1 (917) 888-9999</p>
-                <p>789 Art Street, New York, NY 10001</p>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto text-center text-zinc-600 text-sm mt-16 font-mono">
-            &copy; 2026 Gnostic Tattoo. All rights reserved.
-        </div>
+    <footer class="border-t border-[#1A1A1A] py-12 text-center text-sm tracking-[0.3em] text-gray-600 uppercase bg-[#020202]">
+        &copy; 2026 GNOSTIC TATTOO. NO FLASH, NO GODS.
     </footer>
 
-    <script>lucide.createIcons();</script>
 </body>
 </html>
